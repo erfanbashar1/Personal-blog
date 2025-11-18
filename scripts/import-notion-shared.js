@@ -36,6 +36,52 @@ const notion = new Client({ auth: notionToken });
 const n2m = new NotionToMarkdown({ notionClient: notion });
 
 /**
+ * Extract YouTube video ID from various YouTube URL formats
+ */
+function extractYouTubeId(url) {
+  try {
+    // Handle youtube.com/watch?v=ID
+    const watchMatch = url.match(/youtube\.com\/watch\?v=([^&\s]+)/);
+    if (watchMatch) return watchMatch[1];
+
+    // Handle youtu.be/ID
+    const shortMatch = url.match(/youtu\.be\/([^?&\s]+)/);
+    if (shortMatch) return shortMatch[1];
+
+    // Handle youtube.com/embed/ID
+    const embedMatch = url.match(/youtube\.com\/embed\/([^?&\s]+)/);
+    if (embedMatch) return embedMatch[1];
+
+    return null;
+  } catch (error) {
+    return null;
+  }
+}
+
+/**
+ * Convert YouTube image markdown to embedded iframe
+ * Converts: ![image](https://www.youtube.com/watch?v=ID)
+ * To: <iframe src="https://www.youtube.com/embed/ID" ...></iframe>
+ */
+function convertYouTubeToEmbed(markdown) {
+  // Match markdown image syntax with YouTube URLs
+  const youtubeImageRegex = /!\[.*?\]\((https?:\/\/(www\.)?(youtube\.com|youtu\.be)\/[^\)]+)\)/g;
+
+  return markdown.replace(youtubeImageRegex, (match, url) => {
+    const videoId = extractYouTubeId(url);
+
+    if (!videoId) {
+      console.warn(`⚠️  Could not extract YouTube video ID from: ${url}`);
+      return match; // Return original if parsing fails
+    }
+
+    console.log(`✅ Converting YouTube embed: ${videoId}`);
+
+    return `<iframe width="100%" height="400" src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+  });
+}
+
+/**
  * Convert Notion page to markdown
  */
 async function convertPageToMarkdown(id) {
@@ -53,6 +99,9 @@ async function convertPageToMarkdown(id) {
       // If it's an object with parent property
       markdown = mdblocks.parent || JSON.stringify(mdblocks, null, 2);
     }
+
+    // Post-process: Convert YouTube image links to embedded iframes
+    markdown = convertYouTubeToEmbed(markdown);
 
     return markdown || "";
   } catch (error) {
