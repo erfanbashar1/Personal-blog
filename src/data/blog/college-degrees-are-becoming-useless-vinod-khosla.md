@@ -4,7 +4,7 @@ description: Imported from Notion
 pubDatetime: 2025-11-18T12:38:37.271Z
 slug: college-degrees-are-becoming-useless-vinod-khosla
 featured: false
-draft: true
+draft: false
 tags: []
 ---
 
