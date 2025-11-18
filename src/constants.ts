@@ -1,12 +1,11 @@
 import type { Props } from "astro";
 import IconMail from "@/assets/icons/IconMail.svg";
-import IconGitHub from "@/assets/icons/IconGitHub.svg";
-import IconBrandX from "@/assets/icons/IconBrandX.svg";
 import IconLinkedin from "@/assets/icons/IconLinkedin.svg";
 import IconWhatsapp from "@/assets/icons/IconWhatsapp.svg";
 import IconFacebook from "@/assets/icons/IconFacebook.svg";
 import IconTelegram from "@/assets/icons/IconTelegram.svg";
 import IconPinterest from "@/assets/icons/IconPinterest.svg";
+import IconOrcid from "@/assets/icons/IconOrcid.svg";
 import { SITE } from "@/config";
 
 interface Social {
@@ -18,27 +17,27 @@ interface Social {
 
 export const SOCIALS: Social[] = [
   {
-    name: "GitHub",
-    href: "https://github.com/satnaing/astro-paper",
-    linkTitle: `${SITE.title} on GitHub`,
-    icon: IconGitHub,
-  },
-  {
-    name: "X",
-    href: "https://x.com/username",
-    linkTitle: `${SITE.title} on X`,
-    icon: IconBrandX,
-  },
-  {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/in/username/",
+    href: "https://www.linkedin.com/in/erfan-bashar/",
     linkTitle: `${SITE.title} on LinkedIn`,
     icon: IconLinkedin,
   },
   {
+    name: "ORCID",
+    href: "https://orcid.org/0009-0001-7933-2723",
+    linkTitle: `${SITE.title} on ORCID`,
+    icon: IconOrcid,
+  },
+  {
     name: "Mail",
-    href: "mailto:yourmail@gmail.com",
+    href: "mailto:erfanbashar78@gmail.com",
     linkTitle: `Send an email to ${SITE.title}`,
+    icon: IconMail,
+  },
+  {
+    name: "Mail",
+    href: "mailto:erfan.bashar@studenti.unimi.it",
+    linkTitle: `Send an email to ${SITE.title} (University)`,
     icon: IconMail,
   },
 ] as const;

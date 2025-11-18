@@ -7,6 +7,7 @@ import IconArchive from "@/assets/icons/IconArchive.svg";
 import IconSunHigh from "@/assets/icons/IconSunHigh.svg";
 import IconMenuDeep from "@/assets/icons/IconMenuDeep.svg";
 import LinkButton from "./LinkButton.astro";
+import Logo from "@/assets/Logo.svg";
 import { SITE } from "@/config";
 
 const { pathname } = Astro.url;
@@ -44,9 +45,12 @@ const isActive = (path: string) => {
     >
       <a
         href="/Personal-blog/"
-        class="absolute py-1 text-xl leading-8 font-semibold whitespace-nowrap sm:static sm:my-auto sm:text-2xl sm:leading-none"
+        class="absolute flex items-center gap-2 py-1 sm:static sm:my-auto"
       >
-        {SITE.title}
+        <Logo class="w-10 h-10 sm:w-12 sm:h-12 text-accent" />
+        <span class="text-xl leading-8 font-semibold whitespace-nowrap sm:text-2xl sm:leading-none">
+          {SITE.title}
+        </span>
       </a>
       <nav
         id="nav-menu"

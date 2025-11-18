@@ -1,15 +1,15 @@
 export const SITE = {
   website: "https://erfanbashar1.github.io/Personal-blog/", // replace this with your deployed domain
   author: "Erfan Bashar",
-  profile: "https://github.com/erfanbashar1/",
-  desc: "Erfan's Personal Blog",
-  title: "Erfan's Blog",
+  profile: "https://www.linkedin.com/in/erfan-bashar/",
+  desc: "Erfan Bashar's Personal Blog",
+  title: "Erfan Bashar",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
   postPerIndex: 4,
   postPerPage: 4,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
-  showArchives: true,
+  showArchives: false,
   showBackButton: true, // show back button in post detail
   editPost: {
     enabled: true,
@@ -19,5 +19,5 @@ export const SITE = {
   dynamicOgImage: true,
   dir: "ltr", // "rtl" | "auto"
   lang: "en", // html lang code. Set this empty and default will be "en"
-  timezone: "Asia/Bangkok", // Default global timezone (IANA format) https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  timezone: "Europe/Rome", // Default global timezone (IANA format) https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 } as const;

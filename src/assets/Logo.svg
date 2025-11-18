@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Outer circle -->
+  <circle cx="100" cy="100" r="95" fill="none" stroke="currentColor" stroke-width="2" opacity="0.5"/>
+
+  <!-- Inner geometric design -->
+  <g>
+    <!-- Letter E -->
+    <path d="M 40 60 L 55 60 M 40 100 L 55 100 M 40 140 L 60 140" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M 40 60 L 40 140" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+    <!-- Letter B -->
+    <path d="M 70 60 L 85 60 Q 95 60 95 70 Q 85 75 70 75" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M 70 75 L 88 75 Q 98 75 98 87 Q 88 100 70 100" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M 70 60 L 70 100" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M 70 100 L 87 100 Q 98 100 98 120 Q 88 140 70 140" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M 70 100 L 70 140" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+    <!-- Decorative accent line -->
+    <line x1="110" y1="80" x2="160" y2="80" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+    <line x1="110" y1="120" x2="160" y2="120" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+  </g>
+</svg>
