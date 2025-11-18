@@ -1,11 +1,12 @@
 // Netlify CMS Configuration for GitHub Pages
-// For authentication, you'll need a GitHub Personal Access Token
-// See the README at /public/admin/SETUP.md for instructions
+// Uses GitHub OAuth via Netlify's free gateway service
 window.CMS_CONFIG = {
   backend: {
     name: 'github',
     repo: 'erfanbashar1/Personal-blog',
     branch: 'main',
+    base_url: 'https://erfanbashar1.github.io/Personal-blog',
+    auth_endpoint: 'https://netlify-cms-oauth-provider.netlify.app/auth',
   },
   media_folder: 'public/images/uploads',
   public_folder: '/Personal-blog/images/uploads',
