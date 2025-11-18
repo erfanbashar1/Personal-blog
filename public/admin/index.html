@@ -3,70 +3,146 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Content Manager</title>
+    <title>Blog Admin</title>
     <style>
       body {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         margin: 0;
         padding: 20px;
-        background: #f5f5f5;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       .container {
-        max-width: 600px;
-        margin: 0 auto;
+        max-width: 700px;
         background: white;
-        padding: 40px;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        padding: 50px;
+        border-radius: 12px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         text-align: center;
       }
-      h1 { color: #333; margin-bottom: 20px; }
-      .info { color: #666; line-height: 1.6; margin-bottom: 30px; }
-      a { color: #007bff; text-decoration: none; }
+      h1 {
+        color: #333;
+        margin-bottom: 10px;
+        font-size: 32px;
+      }
+      .subtitle {
+        color: #667eea;
+        font-size: 14px;
+        margin-bottom: 30px;
+        font-weight: 500;
+      }
+      .info {
+        color: #666;
+        line-height: 1.8;
+        margin-bottom: 35px;
+        font-size: 15px;
+      }
+      a { color: #667eea; text-decoration: none; }
       a:hover { text-decoration: underline; }
       .button {
         display: inline-block;
-        background: #007bff;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
-        padding: 12px 24px;
-        border-radius: 4px;
+        padding: 14px 32px;
+        border-radius: 8px;
         text-decoration: none;
-        margin: 10px;
+        margin: 12px;
+        font-weight: 500;
+        transition: transform 0.2s, box-shadow 0.2s;
       }
-      .button:hover { background: #0056b3; }
-      .setup { background: #e7f3ff; border-left: 4px solid #007bff; padding: 15px; margin: 20px 0; text-align: left; }
+      .button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+      }
+      .setup {
+        background: #f8f9ff;
+        border-left: 4px solid #667eea;
+        padding: 20px;
+        margin: 20px 0;
+        text-align: left;
+        border-radius: 6px;
+      }
+      .setup h3 {
+        margin: 0 0 10px 0;
+        color: #333;
+      }
+      .setup p {
+        margin: 10px 0 0 0;
+        color: #666;
+        font-size: 14px;
+      }
+      .status {
+        background: #f0f7ff;
+        border: 1px solid #b3d9ff;
+        padding: 15px;
+        border-radius: 6px;
+        margin-bottom: 30px;
+        color: #0066cc;
+      }
+      .status strong {
+        color: #003d99;
+      }
+      hr {
+        margin: 35px 0;
+        border: none;
+        border-top: 1px solid #eee;
+      }
+      .footer {
+        font-size: 13px;
+        color: #999;
+        margin-top: 25px;
+      }
+      .footer a {
+        color: #667eea;
+        font-weight: 500;
+      }
     </style>
   </head>
   <body>
     <div class="container">
-      <h1>Blog Content Manager</h1>
+      <h1>Personal Blog</h1>
+      <p class="subtitle">Admin Dashboard</p>
+
+      <div class="status">
+        <strong>✨ Sanity.io CMS Active</strong><br>
+        <span>Your blog is now using Sanity.io for content management</span>
+      </div>
 
       <div class="info">
-        <p>Welcome to your blog admin panel!</p>
-        <p>To edit your blog posts, you have two options:</p>
+        <p>Welcome! You have two ways to manage your blog:</p>
       </div>
 
       <div class="setup">
-        <strong>Option 1: Edit on GitHub (Easiest)</strong>
-        <p style="margin: 10px 0 0 0;">Go directly to your repository and edit markdown files:</p>
-        <a href="https://github.com/erfanbashar1/Personal-blog/tree/main/src/data/blog" class="button" style="display: inline-block; margin-top: 10px;">Edit on GitHub →</a>
-      </div>
-
-      <div class="setup">
-        <strong>Option 2: Use Full CMS</strong>
-        <p style="margin: 10px 0 0 0;">For a visual editor experience, follow the setup guide:</p>
-        <a href="SETUP.md" class="button" style="display: inline-block; margin-top: 10px;">View Setup Guide →</a>
-        <p style="margin: 10px 0 0 0; font-size: 14px; color: #666;">
-          Requires: GitHub Personal Access Token
+        <h3>🎨 Option 1: Visual Editor (Recommended)</h3>
+        <p>Use Sanity's beautiful editor with live preview, rich text, and image uploads.</p>
+        <a href="https://sanity.io/desk" class="button" style="display: inline-block; margin-top: 15px;">Open Sanity Studio →</a>
+        <p style="margin-top: 12px; font-size: 13px; color: #999;">
+          Login with your Sanity account. First time? <a href="https://sanity.io/manage/t0k6d7ki" style="color: #667eea;">Configure API token</a>
         </p>
       </div>
 
-      <hr style="margin: 30px 0; border: none; border-top: 1px solid #ddd;">
+      <div class="setup">
+        <h3>💻 Option 2: Edit on GitHub</h3>
+        <p>Edit markdown files directly in GitHub's web editor. Simple and straightforward.</p>
+        <a href="https://github.com/erfanbashar1/Personal-blog/tree/main/src/data/blog" class="button" style="display: inline-block; margin-top: 15px;">Browse on GitHub →</a>
+      </div>
 
-      <p style="font-size: 14px; color: #999;">
-        <strong>Blog URL:</strong> <a href="https://erfanbashar1.github.io/Personal-blog/">https://erfanbashar1.github.io/Personal-blog/</a><br>
-        <strong>Repository:</strong> <a href="https://github.com/erfanbashar1/Personal-blog">erfanbashar1/Personal-blog</a>
+      <hr>
+
+      <p style="margin-bottom: 20px;">
+        <a href="../../">← Back to Blog</a>
       </p>
+
+      <div class="footer">
+        <p>
+          <strong>Blog:</strong> <a href="https://erfanbashar1.github.io/Personal-blog/">erfanbashar1.github.io/Personal-blog</a><br>
+          <strong>Repository:</strong> <a href="https://github.com/erfanbashar1/Personal-blog">github.com/erfanbashar1/Personal-blog</a><br>
+          <strong>Setup Guide:</strong> <a href="../../SANITY_SETUP.md">SANITY_SETUP.md</a>
+        </p>
+      </div>
     </div>
   </body>
 </html>
