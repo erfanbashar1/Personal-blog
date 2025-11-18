@@ -1,0 +1,93 @@
+# This is an alternative configuration if you want to use Netlify's OAuth service
+# To use this:
+# 1. Go to https://app.netlify.com/sites/YOUR-SITE/settings/identity (replace YOUR-SITE with your Netlify site)
+# 2. Create a new OAuth application via GitHub at https://github.com/settings/developers
+# 3. Update this config with your credentials
+
+backend:
+  name: github
+  repo: erfanbashar1/Personal-blog
+  branch: main
+  # Option 1: Use Netlify's free OAuth gateway (recommended)
+  # Uncomment the lines below and create a Netlify site for your blog
+  # base_url: https://your-netlify-site.netlify.app
+  # auth_endpoint: /.netlify/functions/github-auth
+
+  # Option 2: Use GitHub Personal Access Token (manual but works immediately)
+  # Simply use your GitHub PAT when prompted in the CMS
+
+media_folder: "public/images/uploads"
+public_folder: "/Personal-blog/images/uploads"
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "src/data/blog"
+    create: true
+    slug: "{{slug}}"
+    format: "frontmatter"
+    preview_path: "/posts/{{slug}}"
+    fields:
+      - {
+          label: "Title",
+          name: "title",
+          widget: "string",
+          required: true,
+        }
+      - {
+          label: "Author",
+          name: "author",
+          widget: "string",
+          default: "Erfan Bashar",
+        }
+      - {
+          label: "Description",
+          name: "description",
+          widget: "text",
+          required: true,
+          hint: "Brief description of the post",
+        }
+      - {
+          label: "Publish Date",
+          name: "pubDatetime",
+          widget: "datetime",
+          required: true,
+          format: "YYYY-MM-DDTHH:mm:ssZ",
+          date_format: "YYYY-MM-DD",
+          time_format: "HH:mm:ss",
+        }
+      - {
+          label: "Modified Date",
+          name: "modDatetime",
+          widget: "datetime",
+          required: false,
+          format: "YYYY-MM-DDTHH:mm:ssZ",
+          date_format: "YYYY-MM-DD",
+          time_format: "HH:mm:ss",
+        }
+      - {
+          label: "Featured",
+          name: "featured",
+          widget: "boolean",
+          default: false,
+        }
+      - {
+          label: "Draft",
+          name: "draft",
+          widget: "boolean",
+          default: false,
+        }
+      - {
+          label: "Tags",
+          name: "tags",
+          widget: "list",
+          allow_add: true,
+          hint: "Add tags to categorize your post",
+        }
+      - {
+          label: "Post Content",
+          name: "body",
+          widget: "markdown",
+          required: true,
+          hint: "Write your post content in markdown",
+        }
