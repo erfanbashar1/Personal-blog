@@ -49,34 +49,23 @@ function reflectPreference() {
 // set early so no page flashes / CSS is made aware
 reflectPreference();
 
-function setThemeFeature() {
-  // set on load so screen readers can get the latest value on the button
-  reflectPreference();
+window.onload = () => {
+  function setThemeFeature() {
+    // set on load so screen readers can get the latest value on the button
+    reflectPreference();
 
-  // now this script can find and listen for clicks on the control
-  const themeBtn = document.querySelector("#theme-btn");
-  if (themeBtn) {
-    // Remove any existing listeners by cloning the node
-    const newThemeBtn = themeBtn.cloneNode(true);
-    themeBtn.parentNode?.replaceChild(newThemeBtn, themeBtn);
-
-    // Add fresh listener
-    newThemeBtn.addEventListener("click", () => {
+    // now this script can find and listen for clicks on the control
+    document.querySelector("#theme-btn")?.addEventListener("click", () => {
       themeValue = themeValue === "light" ? "dark" : "light";
       setPreference();
     });
   }
-}
 
-// Initialize on page load
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", setThemeFeature);
-} else {
   setThemeFeature();
-}
 
-// Runs on view transitions navigation
-document.addEventListener("astro:after-swap", setThemeFeature);
+  // Runs on view transitions navigation
+  document.addEventListener("astro:after-swap", setThemeFeature);
+};
 
 // Set theme-color value before page transition
 // to avoid navigation bar color flickering in Android dark mode

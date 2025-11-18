@@ -29,12 +29,18 @@ import { SITE } from "@/config";
 
     if (backUrl && backButton) {
       backButton.href = backUrl;
-    } else if (backButton && !backUrl) {
-      // Default to /Personal-blog/ if no back URL stored
-      backButton.href = "/Personal-blog/";
     }
   }
 
-  document.addEventListener("astro:page-load", updateGoBackUrl);
-  updateGoBackUrl();
+  // Use astro:after-swap to wait for sessionStorage to be set
+  document.addEventListener("astro:after-swap", updateGoBackUrl);
+
+  // Also try on initial load after a small delay
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => {
+      setTimeout(updateGoBackUrl, 100);
+    });
+  } else {
+    setTimeout(updateGoBackUrl, 100);
+  }
 </script>
