@@ -164,32 +164,10 @@ const isActive = (path: string) => {
     });
   }
 
-  function toggleTheme() {
-    const themeBtn = document.querySelector("#theme-btn");
-    if (!themeBtn) return;
-
-    themeBtn.addEventListener("click", () => {
-      const htmlElement = document.documentElement;
-      const isDark = htmlElement.classList.contains("dark");
-
-      if (isDark) {
-        htmlElement.classList.remove("dark");
-        localStorage.setItem("theme", "light");
-        themeBtn.setAttribute("aria-label", "light");
-      } else {
-        htmlElement.classList.add("dark");
-        localStorage.setItem("theme", "dark");
-        themeBtn.setAttribute("aria-label", "dark");
-      }
-    });
-  }
-
   toggleNav();
-  toggleTheme();
 
   // Runs on view transitions navigation
   document.addEventListener("astro:after-swap", () => {
     toggleNav();
-    toggleTheme();
   });
 </script>
