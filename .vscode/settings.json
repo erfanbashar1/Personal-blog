@@ -1,0 +1,75 @@
+{
+  "frontMatter.content.publicFolder": "/src/data/blog",
+  "frontMatter.content.fmFormat": "yaml-frontmatter",
+  "frontMatter.preview.host": "localhost",
+  "frontMatter.preview.port": 3000,
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "Blog Post",
+      "pageBundle": false,
+      "previewPath": "posts",
+      "fields": [
+        {
+          "name": "title",
+          "type": "string",
+          "required": true,
+          "single": true
+        },
+        {
+          "name": "author",
+          "type": "string",
+          "default": "Erfan Bashar"
+        },
+        {
+          "name": "pubDatetime",
+          "type": "datetime",
+          "required": true
+        },
+        {
+          "name": "modDatetime",
+          "type": "datetime"
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "name": "featured",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "draft",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "tags",
+          "type": "tags"
+        }
+      ]
+    }
+  ],
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/.git": true,
+    "**/dist": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/.git": true,
+    "**/dist": true
+  },
+  "prettier.documentSelectors": [
+    "markdown"
+  ]
+}

@@ -1,4 +1,13 @@
 {
-  "recommendations": ["astro-build.astro-vscode"],
+  "recommendations": [
+    "astro-build.astro-vscode",
+    "estruyf.front-matter",
+    "yzhang.markdown-all-in-one",
+    "streetsidesoftware.code-spell-checker",
+    "esbenp.prettier-vscode",
+    "github.github-vscode-theme",
+    "ionutvmi.path-autocomplete",
+    "mhutchie.git-graph"
+  ],
   "unwantedRecommendations": []
 }
