@@ -6,6 +6,6 @@ modDatetime:
 slug: second-one
 featured: false
 draft: false
-tags:
-description:
+tags: []
+description: ""
 ---
