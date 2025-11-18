@@ -1,0 +1,8 @@
+# robots.txt for Erfan Bashar's Personal Blog
+# https://www.robotstxt.org/
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://erfanbashar1.github.io/Personal-blog/sitemap-index.xml

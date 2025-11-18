@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import { render, type CollectionEntry } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
@@ -9,6 +10,8 @@ import EditPost from "@/components/EditPost.astro";
 import ShareLinks from "@/components/ShareLinks.astro";
 import BackButton from "@/components/BackButton.astro";
 import BackToTopButton from "@/components/BackToTopButton.astro";
+import SeriesNav from "@/components/SeriesNav.astro";
+import RelatedPosts from "@/components/RelatedPosts.astro";
 import { getPath } from "@/utils/getPath";
 import { slugifyStr } from "@/utils/slugify";
 import IconChevronLeft from "@/assets/icons/IconChevronLeft.svg";
@@ -33,6 +36,8 @@ const {
   timezone,
   tags,
   hideEditPost,
+  coverImage,
+  series,
 } = post.data;
 
 const { Content } = await render(post);
@@ -110,6 +115,23 @@ const nextPost =
       >
       <EditPost {hideEditPost} {post} class="max-sm:hidden" />
     </div>
+
+    {
+      coverImage && (
+        <div class="mt-6 mb-8 overflow-hidden rounded-lg">
+          <Image
+            src={coverImage}
+            alt={title}
+            width={800}
+            height={400}
+            loading="eager"
+          />
+        </div>
+      )
+    }
+
+    <SeriesNav {series} postId={post.id} allPosts={posts} />
+
     <article
       id="article"
       class="app-prose mx-auto mt-8 max-w-app prose-pre:bg-(--shiki-light-bg) dark:prose-pre:bg-(--shiki-dark-bg)"
@@ -128,6 +150,8 @@ const nextPost =
     <BackToTopButton />
 
     <ShareLinks />
+
+    <RelatedPosts currentPostTags={tags} allPosts={posts} currentPostId={post.id} />
 
     <hr class="my-6 border-dashed" />
 

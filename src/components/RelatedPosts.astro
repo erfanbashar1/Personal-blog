@@ -1,0 +1,57 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Card from "./Card.astro";
+
+interface Props {
+  currentPostTags: string[];
+  allPosts: CollectionEntry<"blog">[];
+  currentPostId: string;
+}
+
+const { currentPostTags, allPosts, currentPostId } = Astro.props;
+
+// Filter out draft/future posts
+const publishedPosts = allPosts.filter(
+  (post) => !post.data.draft && new Date(post.data.pubDatetime) <= new Date()
+);
+
+// Find related posts by shared tags
+const relatedPosts = publishedPosts
+  .filter((post) => post.id !== currentPostId) // Exclude current post
+  .map((post) => {
+    // Count how many tags are shared with the current post
+    const sharedTagsCount = post.data.tags.filter((tag) =>
+      currentPostTags.includes(tag)
+    ).length;
+    return { post, sharedTagsCount };
+  })
+  .filter((item) => item.sharedTagsCount > 0) // Only include posts with at least one shared tag
+  .sort((a, b) => b.sharedTagsCount - a.sharedTagsCount) // Sort by most shared tags
+  .slice(0, 4) // Get top 4
+  .map((item) => item.post);
+
+// If no related posts found by tags, show recent posts
+const displayPosts =
+  relatedPosts.length > 0
+    ? relatedPosts
+    : publishedPosts
+        .sort(
+          (a, b) =>
+            new Date(b.data.pubDatetime).getTime() -
+            new Date(a.data.pubDatetime).getTime()
+        )
+        .slice(0, 4);
+---
+
+{
+  displayPosts.length > 0 && (
+    <section class="mt-12 pt-8 border-t border-border">
+      <h2 class="text-xl font-semibold tracking-wide mb-6">Related Posts</h2>
+      <ul class="space-y-4">
+        {displayPosts.map((post) => (
+          <Card variant="h4" {...post} />
+        ))}
+      </ul>
+    </section>
+  )
+}

@@ -10,7 +10,7 @@ import Hr from "@/components/Hr.astro";
 import getSortedPosts from "@/utils/getSortedPosts";
 import IconRss from "@/assets/icons/IconRss.svg";
 import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
-import { SITE } from "@/config";
+import { SITE, BASE_PATH } from "@/config";
 import { SOCIALS } from "@/constants";
 
 const posts = await getCollection("blog");
@@ -29,7 +29,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
       </h1>
       <a
         target="_blank"
-        href="/Personal-blog/rss.xml"
+        href={`${BASE_PATH}/rss.xml`}
         class="inline-block"
         aria-label="rss feed"
         title="RSS Feed"
@@ -89,7 +89,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
     }
 
     <div class="my-8 text-center">
-      <LinkButton href="/Personal-blog/posts/">
+      <LinkButton href={`${BASE_PATH}/posts/`}>
         All Posts
         <IconArrowRight class="inline-block rtl:-rotate-180" />
       </LinkButton>
@@ -98,12 +98,12 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
   <Footer />
 </Layout>
 
-<script>
+<script is:inline define:vars={{ BASE_PATH }}>
   document.addEventListener("astro:page-load", () => {
-    const indexLayout = (document.querySelector("#main-content") as HTMLElement)
-      ?.dataset?.layout;
+    const mainContent = document.querySelector("#main-content");
+    const indexLayout = mainContent?.dataset?.layout;
     if (indexLayout) {
-      sessionStorage.setItem("backUrl", "/Personal-blog/");
+      sessionStorage.setItem("backUrl", `${BASE_PATH}/`);
     }
   });
 </script>

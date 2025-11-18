@@ -1,0 +1,47 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getSeriesPosts, getSeriesPosition } from "@/utils/getSeriesPosts";
+import { getPath } from "@/utils/getPath";
+
+interface Props {
+  series: string | undefined;
+  postId: string;
+  allPosts: CollectionEntry<"blog">[];
+}
+
+const { series, postId, allPosts } = Astro.props;
+
+const seriesPosts = series ? getSeriesPosts(series, allPosts) : [];
+const position = series && seriesPosts.length > 0 ? getSeriesPosition(postId, seriesPosts) : undefined;
+
+const shouldRender = position && seriesPosts.length > 1;
+---
+
+{
+  shouldRender && (
+    <div class="mb-8 p-4 bg-muted rounded-lg border border-border">
+      <div class="text-sm font-medium text-foreground/80 mb-4">
+        Part {position.current} of {position.total} in series: <strong>{series}</strong>
+      </div>
+      <ul class="space-y-2">
+        {seriesPosts.map((post, index) => (
+          <li class="flex items-start gap-2">
+            <span class="text-foreground/60 min-w-fit">
+              {index + 1}.
+            </span>
+            {index === seriesPosts.findIndex((p) => p.id === postId) ? (
+              <span class="text-foreground font-medium">{post.data.title}</span>
+            ) : (
+              <a
+                href={getPath(post.id, post.filePath)}
+                class="text-accent hover:underline"
+              >
+                {post.data.title}
+              </a>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}

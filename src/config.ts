@@ -1,3 +1,5 @@
+export const BASE_PATH = "/Personal-blog";
+
 export const SITE = {
   website: "https://erfanbashar1.github.io/Personal-blog/", // replace this with your deployed domain
   author: "Erfan Bashar",

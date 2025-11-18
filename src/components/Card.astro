@@ -1,16 +1,18 @@
 ---
+import { Image } from "astro:assets";
 import { slugifyStr } from "@/utils/slugify";
 import type { CollectionEntry } from "astro:content";
 import { getPath } from "@/utils/getPath";
 import Datetime from "./Datetime.astro";
 
 export interface Props extends CollectionEntry<"blog"> {
-  variant?: "h2" | "h3";
+  variant?: "h2" | "h3" | "h4";
 }
 
 const { variant = "h2", data, id, filePath } = Astro.props;
 
-const { title, description, pubDatetime, modDatetime, timezone } = data;
+const { title, description, pubDatetime, modDatetime, timezone, coverImage } =
+  data;
 
 const headerProps = {
   style: { viewTransitionName: slugifyStr(title) },
@@ -19,6 +21,22 @@ const headerProps = {
 ---
 
 <li class="my-6">
+  {
+    coverImage && (
+      <a
+        href={getPath(id, filePath)}
+        class="inline-block mb-3 overflow-hidden rounded-lg hover:opacity-90 transition-opacity"
+      >
+        <Image
+          src={coverImage}
+          alt={title}
+          width={400}
+          height={200}
+          loading="lazy"
+        />
+      </a>
+    )
+  }
   <a
     href={getPath(id, filePath)}
     class="inline-block text-lg font-medium text-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
@@ -26,8 +44,10 @@ const headerProps = {
     {
       variant === "h2" ? (
         <h2 {...headerProps}>{title}</h2>
-      ) : (
+      ) : variant === "h3" ? (
         <h3 {...headerProps}>{title}</h3>
+      ) : (
+        <h4 {...headerProps}>{title}</h4>
       )
     }
   </a>

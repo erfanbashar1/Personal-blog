@@ -4,9 +4,9 @@ import Main from "@/layouts/Main.astro";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
-import { SITE } from "@/config";
+import { SITE, BASE_PATH } from "@/config";
 
-const backUrl = SITE.showBackButton ? `/Personal-blog${Astro.url.pathname}` : "/Personal-blog/";
+const backUrl = SITE.showBackButton ? `${BASE_PATH}${Astro.url.pathname}` : `${BASE_PATH}/`;
 ---
 
 <Layout title={`Search | ${SITE.title}`}>
