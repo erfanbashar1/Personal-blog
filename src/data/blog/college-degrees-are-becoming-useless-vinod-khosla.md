@@ -2,9 +2,8 @@
 title: College Degrees Are Becoming Useless Vinod Khosla
 description: Imported from Notion
 pubDatetime: 2025-11-18T12:38:37.271Z
-slug: college-degrees-are-becoming-useless-vinod-khosla
+slug: college-degrees-useless-vinod-khosla
 featured: false
-draft: false
 tags: []
 pubDate: 2025-11-18T12:40:03.783Z
 ---

@@ -5,10 +5,18 @@ import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 ---
 
-<Layout title={`Resume | ${SITE.title}`}>
+<Layout title={`About Me | ${SITE.title}`}>
   <Header />
-  <main id="main-content" data-layout="resume" class="prose mx-auto max-w-prose text-foreground prose-headings:text-foreground prose-strong:text-foreground prose-em:text-foreground prose-p:text-foreground prose-a:text-accent prose-hr:border-border">
-    <h3>Medical Student</h3>
+  <main id="main-content" data-layout="about" class="prose mx-auto max-w-prose text-foreground prose-headings:text-foreground prose-strong:text-foreground prose-em:text-foreground prose-p:text-foreground prose-a:text-accent prose-hr:border-border">
+    <h1>About Me</h1>
+
+    <p>
+      I'm Erfan Bashar, born on 23/07/1999 and originally from Iran. Currently, I'm pursuing my
+      studies in Medicine and Surgery at the University of Milan, International Medical School
+      (IMS). I have a deep interest in Medicine and Physiology and I'm truly passionate about
+      understanding the core concepts, particularly those related to Intensive Care and
+      fundamental sciences like Physiology.
+    </p>
 
     <hr />
 
@@ -28,18 +36,6 @@ import Footer from "@/components/Footer.astro";
 
     <p>
       <a href="https://orcid.org/0009-0001-7933-2723">Orcid Profile</a>
-    </p>
-
-    <hr />
-
-    <h3>About Me</h3>
-
-    <p>
-      I'm Erfan Bashar, born on 23/07/1999 and originally from Iran. Currently, I'm pursuing my
-      studies in Medicine and Surgery at the University of Milan, International Medical School
-      (IMS). I have a deep interest in Medicine and Physiology and I'm truly passionate about
-      understanding the core concepts, particularly those related to Intensive Care and
-      fundamental sciences like Physiology.
     </p>
 
     <hr />
