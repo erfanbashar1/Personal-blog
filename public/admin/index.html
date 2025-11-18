@@ -3,10 +3,70 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin</title>
+    <title>Content Manager</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background: #f5f5f5;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        background: white;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        text-align: center;
+      }
+      h1 { color: #333; margin-bottom: 20px; }
+      .info { color: #666; line-height: 1.6; margin-bottom: 30px; }
+      a { color: #007bff; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      .button {
+        display: inline-block;
+        background: #007bff;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 4px;
+        text-decoration: none;
+        margin: 10px;
+      }
+      .button:hover { background: #0056b3; }
+      .setup { background: #e7f3ff; border-left: 4px solid #007bff; padding: 15px; margin: 20px 0; text-align: left; }
+    </style>
   </head>
   <body>
-    <script src="https://unpkg.com/netlify-cms@2.10.192/dist/netlify-cms.js"></script>
-    <script src="config.js"></script>
+    <div class="container">
+      <h1>Blog Content Manager</h1>
+
+      <div class="info">
+        <p>Welcome to your blog admin panel!</p>
+        <p>To edit your blog posts, you have two options:</p>
+      </div>
+
+      <div class="setup">
+        <strong>Option 1: Edit on GitHub (Easiest)</strong>
+        <p style="margin: 10px 0 0 0;">Go directly to your repository and edit markdown files:</p>
+        <a href="https://github.com/erfanbashar1/Personal-blog/tree/main/src/data/blog" class="button" style="display: inline-block; margin-top: 10px;">Edit on GitHub →</a>
+      </div>
+
+      <div class="setup">
+        <strong>Option 2: Use Full CMS</strong>
+        <p style="margin: 10px 0 0 0;">For a visual editor experience, follow the setup guide:</p>
+        <a href="SETUP.md" class="button" style="display: inline-block; margin-top: 10px;">View Setup Guide →</a>
+        <p style="margin: 10px 0 0 0; font-size: 14px; color: #666;">
+          Requires: GitHub Personal Access Token
+        </p>
+      </div>
+
+      <hr style="margin: 30px 0; border: none; border-top: 1px solid #ddd;">
+
+      <p style="font-size: 14px; color: #999;">
+        <strong>Blog URL:</strong> <a href="https://erfanbashar1.github.io/Personal-blog/">https://erfanbashar1.github.io/Personal-blog/</a><br>
+        <strong>Repository:</strong> <a href="https://github.com/erfanbashar1/Personal-blog">erfanbashar1/Personal-blog</a>
+      </p>
+    </div>
   </body>
 </html>
