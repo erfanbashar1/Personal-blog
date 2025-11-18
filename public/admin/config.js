@@ -1,4 +1,6 @@
-// Netlify CMS Configuration
+// Netlify CMS Configuration for GitHub Pages
+// For authentication, you'll need a GitHub Personal Access Token
+// See the README at /public/admin/SETUP.md for instructions
 window.CMS_CONFIG = {
   backend: {
     name: 'github',
