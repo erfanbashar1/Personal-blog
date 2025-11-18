@@ -271,6 +271,10 @@ Pages in `src/pages/` automatically become routes:
 3. **View Transitions**: Astro view transitions are enabled, so event listeners need `astro:after-swap` for proper reinitializion
 4. **sessionStorage Timing**: Back button uses both `DOMContentLoaded` and `astro:after-swap` to ensure sessionStorage is populated
 5. **Dark Mode Persistence**: User theme preference is stored in localStorage and persists across sessions
+6. **Prose Styling for Theme Consistency**: When using Tailwind's `prose` class on pages, **never use `prose-invert`** as it hardcodes dark colors. Instead, use theme-aware classes:
+   - ✅ Correct: `class="prose text-foreground prose-headings:text-foreground prose-p:text-foreground prose-a:text-accent"`
+   - ❌ Wrong: `class="prose prose-invert"` (breaks theme switching)
+   - Applied to: [resume.astro](src/pages/resume.astro)
 
 ---
 
@@ -364,6 +368,9 @@ November 18, 2025
 - Critical pnpm package manager documentation to prevent lock file errors
 - Import script: `npm run import:notion:shared <PAGE_ID> "Title"`
 - First imported post: "College Degrees Are Becoming Useless"
+- Complete blog customization with personal branding (site title, colors, logo, social links)
+- Fixed resume page text color to respect theme switching (removed `prose-invert`)
+- Added Prose styling documentation to prevent future theme conflicts
 
 ## Contact & Maintenance
 
