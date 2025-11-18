@@ -1,8 +1,8 @@
 ---
 author: Erfan Bashar
 title: Test Content
-pubDate: 2025-11-18T10:12:50.119Z
-modDate:
+pubDatetime: 2025-11-18T10:12:50.119Z
+modDatetime:
 slug: test-content
 featured: false
 draft: false
