@@ -17,6 +17,6 @@ pubDate: 2025-11-18T12:40:03.783Z
 - what is gonna happen if the farmer is able to the exact job which an oncologist can do? how we can distribute wealth in this world?
 -
 
-https://notebooklm.google.com/notebook/9205cc15-19d0-4300-8c4e-52310bf51234
+## Related Resources
 
-\*\*
+- **Google NotebookLM**: [View the analysis notebook](https://notebooklm.google.com/notebook/9205cc15-19d0-4300-8c4e-52310bf51234)
